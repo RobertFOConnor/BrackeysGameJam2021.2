@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class InGameUIHandler : MonoBehaviour
 {
     static InGameUIHandler instance;
@@ -13,6 +14,11 @@ public class InGameUIHandler : MonoBehaviour
     [SerializeField]
     GameObject pauseTab;
 
+    [SerializeField]
+    TMP_Dropdown resolutionChooser;
+
+    [SerializeField]
+    Toggle fullscreen;
 
     private bool paused = false;
     // Start is called before the first frame update
@@ -30,6 +36,11 @@ public class InGameUIHandler : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
     }
+
+/// <summary>
+/// STUFF TO DO WITH PAUSE MENU NAVIGATION
+/// toggles layers on the pause menu and changes the timescale
+
 
     public void OnGamePause()
     {
@@ -63,11 +74,42 @@ public class InGameUIHandler : MonoBehaviour
             }
         }
     }
-
-
     public void ResetPauseMenu()
     {
         OnLayerToggle(0);
         pauseTab.SetActive(false);
+    }
+
+    /// <summary>
+    /// STUFF TO DO WITH VIDEO TAB ON PAUSE MENU
+    /// </summary>
+
+    public void SaveAndApplyVideoSettings()
+    {
+        bool turnOnFullscreen = fullscreen.isOn;
+        switch (resolutionChooser.value)
+        {
+            case 0:
+                Screen.SetResolution(1366, 768, turnOnFullscreen);
+                break;
+            case 1:
+                Screen.SetResolution(1600, 900, turnOnFullscreen);
+                break;
+            case 2:
+                Screen.SetResolution(1920, 1080, turnOnFullscreen);
+                break;
+            case 3:
+                Screen.SetResolution(1920, 1200, turnOnFullscreen);
+                break;
+            case 4:
+                Screen.SetResolution(2560, 1440, turnOnFullscreen);
+                break;
+            case 5:
+                Screen.SetResolution(2560, 1600, turnOnFullscreen);
+                break;
+            case 6:
+                Screen.SetResolution(3840, 2160, turnOnFullscreen);
+                break;
+        }
     }
 }

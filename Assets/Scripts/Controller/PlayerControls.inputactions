@@ -2,12 +2,12 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "PlayerMovement",
+            "name": "Player",
             "id": "1ddb9745-c226-4ec2-baf7-f200b183073e",
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "2e4afe9c-ec55-442e-bbdc-f3d796382e4a",
                     "expectedControlType": "Vector2",
                     "processors": "",

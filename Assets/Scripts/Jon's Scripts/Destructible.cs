@@ -10,7 +10,6 @@ public class Destructible : MonoBehaviour
     public static float destroyCountdown = 2.5f;
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.relativeVelocity.magnitude);
         if (collision.relativeVelocity.magnitude >= forceToDestroy)
         {
             Invoke("DestroyMe", 2.5f);

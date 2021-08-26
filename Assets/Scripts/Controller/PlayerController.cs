@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,7 +21,10 @@ public class PlayerController : MonoBehaviour
     private Transform poopSpawn;
     [SerializeField]
     private GameObject poopPrefab;
-    
+    [SerializeField]
+    private InGameUIHandler uiHandler;
+    [SerializeField]
+    private CinemachineBrain m_Brain;
 
     private CharacterController controller;
     private PlayerInput playerInput;
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction poopAction;
+    private InputAction menuAction;
 
 
     private void Start()
@@ -44,17 +49,20 @@ public class PlayerController : MonoBehaviour
         moveAction = playerInput.actions["Movement"];
         jumpAction = playerInput.actions["Jump"];
         poopAction = playerInput.actions["Poop"];
-
+        menuAction = playerInput.actions["Menu"];
     }
 
     void Update()
     {
+
+        //Check if the player is on the ground
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
 
+        //Movement of the player
         Vector2 input = moveAction.ReadValue<Vector2>();
         Vector3 move = new Vector3(input.x, 0, input.y);
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
@@ -90,6 +98,22 @@ public class PlayerController : MonoBehaviour
             canPoop = false;
             Invoke("PoopCooldown", poopCD);
 
+        }
+
+        //Open's MainMenu
+        if (menuAction.triggered)
+        {
+            uiHandler.OnGamePause();
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (Time.deltaTime == 0f)
+        {
+            m_Brain.enabled = false;
+        }
+        else
+        {
+            m_Brain.enabled = true;
         }
     }
 

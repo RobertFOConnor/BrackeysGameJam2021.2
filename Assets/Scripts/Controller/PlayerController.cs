@@ -12,15 +12,28 @@ public class PlayerController : MonoBehaviour
     private float gravityValue = -9.81f;
     [SerializeField]
     private float rotationSpeed = 5f;
+
+    [SerializeField]
+    private float poopCD = 3f;
+
+    [SerializeField]
+    private Transform poopSpawn;
+    [SerializeField]
+    private GameObject poopPrefab;
     
+
     private CharacterController controller;
     private PlayerInput playerInput;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private Transform cameraTransform;
 
+    private bool canPoop = true;
+
     private InputAction moveAction;
     private InputAction jumpAction;
+    private InputAction poopAction;
+
 
     private void Start()
     {
@@ -30,6 +43,8 @@ public class PlayerController : MonoBehaviour
         cameraTransform = Camera.main.transform;
         moveAction = playerInput.actions["Movement"];
         jumpAction = playerInput.actions["Jump"];
+        poopAction = playerInput.actions["Poop"];
+
     }
 
     void Update()
@@ -67,5 +82,19 @@ public class PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
+
+        // Pooping
+        if (poopAction.triggered && canPoop)
+        {
+            Instantiate(poopPrefab, poopSpawn.position, new Quaternion(0, 0, 0, 0));
+            canPoop = false;
+            Invoke("PoopCooldown", poopCD);
+
+        }
+    }
+
+    void PoopCooldown()
+    {
+        canPoop = true;
     }
 }

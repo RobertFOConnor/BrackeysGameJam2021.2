@@ -3907,6 +3907,7 @@ MonoBehaviour:
   - {fileID: 2814313050230929771}
   - {fileID: 2814313049403155864}
   - {fileID: 1150771422134263173}
+  - {fileID: 5123437560441329807}
   pauseTab: {fileID: 2814313049669880095}
   resolutionChooser: {fileID: 2814313050285132223}
   fullscreen: {fileID: 2814313048801172288}
@@ -11966,7 +11967,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7796824774979077264}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6650377339839327860}
+        m_TargetAssemblyTypeName: InGameUIHandler, Assembly-CSharp
+        m_MethodName: OnClickMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6048177052878217667
 GameObject:
   m_ObjectHideFlags: 0
@@ -12793,7 +12806,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6650377339839327860}
         m_TargetAssemblyTypeName: InGameUIHandler, Assembly-CSharp
-        m_MethodName: OnGamePause
+        m_MethodName: OnClickPlayAgain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

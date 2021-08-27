@@ -14,6 +14,8 @@ public class TimerHandler : MonoBehaviour
     [SerializeField]
     Image timerFill;
 
+    private bool gameOver = false;
+
     private void Start()
     {
         timeRemaining = startingTime;
@@ -24,17 +26,19 @@ public class TimerHandler : MonoBehaviour
         timeRemaining -= Time.deltaTime;
         timerFill.fillAmount = timeRemaining / startingTime;
         timerLabel.text = ConvertToMinutesAndSeconds(timeRemaining);
-        if (timeRemaining <= 0)
+        if (timeRemaining <= 0 && !gameOver)
         {
+            gameOver = true;
             GameOver();
         }
     }
 
     string ConvertToMinutesAndSeconds(float time)
     {
-        int mins = Mathf.FloorToInt(Mathf.RoundToInt(time) / 60);
-        int seconds = Mathf.RoundToInt(time % 60);
-        return mins.ToString() + ":" + seconds.ToString();
+        int mins = Mathf.FloorToInt(Mathf.FloorToInt(time) / 60);
+        int tenSeconds = Mathf.FloorToInt(time % 60) / 10;
+        int seconds = Mathf.FloorToInt(time % 60) % 10;
+        return mins.ToString() + ":" + tenSeconds.ToString() + seconds.ToString();
     }
 
     void GameOver()

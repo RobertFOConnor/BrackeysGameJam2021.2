@@ -34,6 +34,9 @@ public class ScoreHandler : MonoBehaviour
     public float comboTimer;
 
     [SerializeField]
+    GameObject combosGO;
+
+    [SerializeField]
     [Range(0, 10)]
     int comboThreshhold;
 
@@ -73,6 +76,7 @@ public class ScoreHandler : MonoBehaviour
         comboBarFill.fillAmount = currentComboTimer / comboTimer;
         if (currentComboTimer <= 0)
         {
+            combosGO.SetActive(false);
             currentComboIndex = 0;
             currentComboChain = 0;
             multiplierTextField.text = "COMBO! " + comboArray[currentComboIndex].ToString() + "x";
@@ -120,6 +124,7 @@ public class ScoreHandler : MonoBehaviour
     /// </summary>
     void UpdateComboChain()
     {
+        combosGO.SetActive(true);
         currentComboTimer = comboTimer;
         currentComboChain++;
         if (currentComboChain % comboThreshhold == 0)

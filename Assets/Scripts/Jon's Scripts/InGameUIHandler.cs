@@ -23,9 +23,6 @@ public class InGameUIHandler : MonoBehaviour
     Slider sfxSlider;
 
 
-
-
-
     AudioHandler audioHandler; 
 
     private bool paused = false;
@@ -145,5 +142,12 @@ public class InGameUIHandler : MonoBehaviour
     {
 
         audioHandler.setSFXVolume(value);
+    }
+
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        OnLayerToggle(pauseMenuLayers.Length - 1);
     }
 }

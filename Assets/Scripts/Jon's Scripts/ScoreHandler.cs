@@ -51,7 +51,6 @@ public class ScoreHandler : MonoBehaviour
     private float currentComboTimer = 0;  // how long until current combo expires
     public void Start()
     {
-        maxScorePossible = GetMaxScorePossible();
         baselineBarScale = scoreBarGO.transform.localScale;
 
         ChangeScoreText();
@@ -96,9 +95,9 @@ public class ScoreHandler : MonoBehaviour
         return score;
     }
 
-    public int GetMaxScorePossible()    //TODO
+    public void AddToMaxScore(float delta)    
     {
-        return 10000;
+        maxScorePossible += delta;
     }
 
     void ChangeScoreText()

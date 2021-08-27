@@ -64,13 +64,13 @@ public class InGameUIHandler : MonoBehaviour
     {
         if (paused)
         {
-            Time.timeScale = 1;
+            Time.timeScale = 1f;
             ResetPauseMenu();
         }
 
         else
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0f;
             pauseTab.SetActive(true);
 
         }
@@ -96,6 +96,7 @@ public class InGameUIHandler : MonoBehaviour
     {
         OnLayerToggle(0);
         pauseTab.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     /// <summary>

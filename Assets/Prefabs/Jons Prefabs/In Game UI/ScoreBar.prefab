@@ -30,11 +30,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4914428179550092732}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -0.0000038146973}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 0, y: -2.233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4914428178966390976
@@ -105,8 +105,8 @@ RectTransform:
   m_LocalScale: {x: 1.7, y: 1.7, z: 1}
   m_Children:
   - {fileID: 4914428179780085836}
-  - {fileID: 4914428178966390982}
   - {fileID: 4914428179871276621}
+  - {fileID: 4914428178966390982}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -182,6 +182,11 @@ MonoBehaviour:
   scoreBarFill: {fileID: 4914428179550092733}
   scoreBarGO: {fileID: 4914428179550092732}
   slamShrinkFactor: 0.0642
+  comboTimer: 0
+  comboThreshhold: 0
+  multiplierTextField: {fileID: 0}
+  comboBarFill: {fileID: 0}
+  comboArray: 
 --- !u!1 &4914428179780085843
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +308,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4914428179550092732}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

@@ -3925,8 +3925,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df83d44a900787418dbefd6e3bef371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volMixer: {fileID: 24100000, guid: 8184636a931fea24ab780f575af4fa63, type: 2}
+  volMixer: {fileID: 24100000, guid: 4bcc2fb50fa69914c977449e71685a5c, type: 2}
   volSlider: {fileID: 2814313050486686796}
+  sfxSlider: {fileID: 0}
   qualityDropdown: {fileID: 1395963500}
   resolutionDropdown: {fileID: 2814313050285132223}
   fullScreenToggle: {fileID: 2814313048801172288}
@@ -13119,10 +13120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpAction: {fileID: 2819850448552806332, guid: 8dfd16dab7cc4db4b9951eb9cf4748d4, type: 3}
-  playerInput: {fileID: 0}
   UpbindingDisplayNameText: {fileID: 6446267131786599152}
   startRebindObject: {fileID: 4929495164290009332}
   waitingForInputObject: {fileID: 864046252}
+  playerInput: {fileID: 0}
 --- !u!1 &7215489425013318461
 GameObject:
   m_ObjectHideFlags: 0

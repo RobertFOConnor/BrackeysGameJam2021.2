@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 386393435}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1351,6 +1351,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3010300374915439736, guid: 6c101ab47570f214aaa09caa606041fb, type: 3}
+      propertyPath: m_CameraRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010300374915439736, guid: 6c101ab47570f214aaa09caa606041fb, type: 3}
+      propertyPath: m_CollideAgainst.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010300374915439736, guid: 6c101ab47570f214aaa09caa606041fb, type: 3}
+      propertyPath: m_TransparentLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5728792745145137400, guid: 6c101ab47570f214aaa09caa606041fb, type: 3}
       propertyPath: m_Brain
       value: 

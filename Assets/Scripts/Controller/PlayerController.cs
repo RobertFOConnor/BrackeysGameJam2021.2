@@ -132,4 +132,11 @@ public class PlayerController : MonoBehaviour
     {
         playerInput.ActivateInput();
     }
+
+    public void HitByCar()
+    {
+        playerInput.DeactivateInput();
+        animator.SetTrigger("Car");
+        Invoke("Unfreeze", 3.5f);
+    }
 }

@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 1950357282859499193}
   - component: {fileID: 4180148250097011108}
   - component: {fileID: 8880090862481872827}
+  - component: {fileID: 1609979648677864172}
   m_Layer: 0
   m_Name: pCube21
   m_TagString: Untagged
@@ -206,6 +207,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1609979648677864172
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266904917094005856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7825289430055562144, guid: 39c5a6059975ce84a977ee2b660866a0, type: 3}
 --- !u!1 &3385919193567597399
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +263,6 @@ GameObject:
   - component: {fileID: 6620520816942199713}
   - component: {fileID: -6163687794617422748}
   - component: {fileID: 1423172678414759054}
-  - component: {fileID: -2226486946648211596}
   m_Layer: 0
   m_Name: simple bush
   m_TagString: Untagged
@@ -309,20 +323,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &-2226486946648211596
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5812739983418288411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &5917411447316660928
 GameObject:
   m_ObjectHideFlags: 0

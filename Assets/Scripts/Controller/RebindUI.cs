@@ -38,6 +38,7 @@ public class RebindUI : MonoBehaviour
 
         if (inputActionReference != null)
         {
+            InputManager.LoadBindingOverride(actionName);
             GetBindingInfo();
             UpdateUI();
         }

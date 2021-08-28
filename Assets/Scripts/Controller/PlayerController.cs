@@ -1,8 +1,9 @@
 using Cinemachine;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
@@ -27,32 +28,45 @@ public class PlayerController : MonoBehaviour
     private CinemachineBrain m_Brain;
 
     private CharacterController controller;
-    private PlayerInput playerInput;
+    private PlayerControls playerInput;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private Transform cameraTransform;
     private Animator animator;
 
     private bool canPoop = true;
+    private bool IsPooping = false;
 
     private InputAction moveAction;
-    private InputAction jumpAction;
-    private InputAction poopAction;
-    private InputAction menuAction;
 
+    private void Awake()
+    {
+        playerInput = InputManager.inputActions;
+
+    }
+
+    private void OnEnable()
+    {        
+        moveAction = playerInput.Player.Movement;
+        moveAction.Enable();
+
+        playerInput.Player.Jump.performed += DoJump;
+        playerInput.Player.Jump.Enable();
+
+        playerInput.Player.Poop.performed += DoPoop;
+        playerInput.Player.Poop.Enable();
+
+        playerInput.Player.Menu.performed += OpenMenu;
+        playerInput.Player.Menu.Enable();
+    }
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         cameraTransform = Camera.main.transform;
         uiHandler = FindObjectOfType<InGameUIHandler>();
-        moveAction = playerInput.actions["Movement"];
-        jumpAction = playerInput.actions["Jump"];
-        poopAction = playerInput.actions["Poop"];
-        menuAction = playerInput.actions["Menu"];        
     }
 
     void Update()
@@ -69,6 +83,7 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new Vector3(input.x, 0, input.y);
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
         move.y = 0;
+        move.Normalize();
         controller.Move(move * Time.deltaTime * playerSpeed);
         animator.SetFloat("MoveX", input.x);
         animator.SetFloat("MoveY", input.y);
@@ -77,40 +92,18 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.forward = move;
         }
 
-        // Changes the height position of the player..
-        if (jumpAction.triggered && groundedPlayer)
-        {
-            animator.SetTrigger("Jump");
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
-
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
         // Rotate towards camera direction
         if (move == Vector3.zero)
         {
-            float targetAngle = cameraTransform.eulerAngles.y;
-            Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
-
-        // Pooping
-        if (poopAction.triggered && canPoop)
-        {
-            playerInput.DeactivateInput();
-            animator.SetTrigger("Poop");
-            Instantiate(poopPrefab, poopSpawn.position, new Quaternion(0, 0, 0, 0));
-            canPoop = false;
-            Invoke("PoopCooldown", poopCD);
-            Invoke("Unfreeze", 3.5f);            
-        }
-
-        //Open's MainMenu
-        if (menuAction.triggered)
-        {
-            uiHandler.OnGamePause();
-            Cursor.lockState = CursorLockMode.None;
+            if (!IsPooping)
+            {
+                float targetAngle = cameraTransform.eulerAngles.y;
+                Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);                
+            }
         }
 
         if (Time.deltaTime == 0f)
@@ -123,6 +116,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void DoJump(InputAction.CallbackContext obj)
+    {
+        if (groundedPlayer)
+        {
+            animator.SetTrigger("Jump");
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
+    }
+
+    private void DoPoop(InputAction.CallbackContext obj)
+    {
+        if (canPoop)
+        {
+            IsPooping = true;
+            playerInput.Disable();
+            animator.SetTrigger("Poop");
+            Instantiate(poopPrefab, poopSpawn.position, new Quaternion(0, 0, 0, 0));
+            canPoop = false;
+            Invoke("PoopCooldown", poopCD);
+            Invoke("Unfreeze", 3.5f);
+        }
+    }
+
+    private void OpenMenu(InputAction.CallbackContext obj)
+    {
+        uiHandler.OnGamePause();
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     void PoopCooldown()
     {
         canPoop = true;
@@ -130,12 +152,13 @@ public class PlayerController : MonoBehaviour
 
     void Unfreeze()
     {
-        playerInput.ActivateInput();
+        playerInput.Enable();
+        IsPooping = false;
     }
 
     public void HitByCar()
     {
-        playerInput.DeactivateInput();
+        playerInput.Disable();
         animator.SetTrigger("Car");
         Invoke("Unfreeze", 3.5f);
     }

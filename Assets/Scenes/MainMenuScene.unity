@@ -299,17 +299,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1310687300 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5664399397051183635, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
-  m_PrefabInstance: {fileID: 6044445189431088239}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89db4536b77fb1468a1f04cd243f7de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1845274858
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +354,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1157022468, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
+      propertyPath: m_text
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795085698707230953, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5664399397051183632, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -452,30 +449,6 @@ PrefabInstance:
     - target: {fileID: 5664399397051183636, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
       propertyPath: m_Name
       value: Main Menu UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 5664399397269256228, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1310687300}
-    - target: {fileID: 5664399397269256228, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 5664399397269256228, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuUIHandler, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5664399398100717578, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
-      propertyPath: m_Color.b
-      value: 0.754717
-      objectReference: {fileID: 0}
-    - target: {fileID: 5664399398100717578, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
-      propertyPath: m_Color.g
-      value: 0.5387935
-      objectReference: {fileID: 0}
-    - target: {fileID: 5664399398100717578, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}
-      propertyPath: m_Color.r
-      value: 0.18274586
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08bbd36dd28f6f42a458eadb9705f2e, type: 3}

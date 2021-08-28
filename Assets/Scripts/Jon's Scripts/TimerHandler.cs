@@ -14,6 +14,9 @@ public class TimerHandler : MonoBehaviour
     [SerializeField]
     Image timerFill;
 
+    [SerializeField]
+    GameObject lowTimeGO;
+
     private bool gameOver = false;
 
     private void Start()
@@ -31,6 +34,11 @@ public class TimerHandler : MonoBehaviour
             gameOver = true;
             GameOver();
         }
+
+        if (timeRemaining <= 25)
+        {
+            TriggerLowTime();
+        }
     }
 
     string ConvertToMinutesAndSeconds(float time)
@@ -44,5 +52,10 @@ public class TimerHandler : MonoBehaviour
     void GameOver()
     {
         FindObjectOfType<InGameUIHandler>().GameOver();
+    }
+
+    void TriggerLowTime()
+    {
+        lowTimeGO.SetActive(true);
     }
 }

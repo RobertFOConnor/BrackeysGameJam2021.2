@@ -23,6 +23,9 @@ public class InGameUIHandler : MonoBehaviour
     [SerializeField]
     Slider sfxSlider;
 
+    [SerializeField]
+    TextMeshProUGUI gameOverScoreText;
+
 
     AudioHandler audioHandler; 
 
@@ -168,6 +171,7 @@ public class InGameUIHandler : MonoBehaviour
         pauseTab.SetActive(true);
         OnLayerToggle(pauseMenuLayers.Length - 1);
         gameOver = true;
+        gameOverScoreText.text = "Your Score:\n" + FindObjectOfType<ScoreHandler>().GetScore().ToString();
 
     }
 

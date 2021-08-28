@@ -106,7 +106,7 @@ public class ScoreHandler : MonoBehaviour
 
     void ChangeScoreText()
     {
-        scoreTextField.text = score.ToString() + '/' + maxScorePossible;
+        scoreTextField.text = score.ToString(); // + '/' + maxScorePossible;
     }
     void SetBarFill() 
     {

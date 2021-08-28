@@ -879,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3476221891094994789, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
       propertyPath: startingTime
-      value: 65
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3647324880265541744, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
       propertyPath: m_hasFontAssetChanged

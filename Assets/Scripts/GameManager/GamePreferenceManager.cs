@@ -9,6 +9,7 @@ public class GamePreferenceManager : MonoBehaviour
 {
     public AudioMixer volMixer;
     public Slider volSlider;
+    public Slider sfxSlider;
     public TMP_Dropdown qualityDropdown;
     public TMP_Dropdown resolutionDropdown;
     public Toggle fullScreenToggle;
@@ -88,10 +89,16 @@ public class GamePreferenceManager : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void ChangeVol(float volume)
+    public void ChangeMVol(float volume)
     {
         PlayerPrefs.SetFloat("MVolume", volume);
         volMixer.SetFloat("volume", PlayerPrefs.GetFloat("MVolume"));
+    }
+
+    public void ChangeSFXVol(float volume)
+    {
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+        volMixer.SetFloat("volume", PlayerPrefs.GetFloat("SFXVolume"));
     }
 
     public void SetQuality(int qualityIndex)

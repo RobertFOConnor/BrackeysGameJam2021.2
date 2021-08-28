@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class InGameUIHandler : MonoBehaviour
 {
     static InGameUIHandler instance;
@@ -23,12 +24,10 @@ public class InGameUIHandler : MonoBehaviour
     Slider sfxSlider;
 
 
-
-
-
     AudioHandler audioHandler; 
 
     private bool paused = false;
+    private bool gameOver = false;
     // Start is called before the first frame update
 
     public static InGameUIHandler GetInstance()
@@ -42,7 +41,7 @@ public class InGameUIHandler : MonoBehaviour
 
     public void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     public void Start()
@@ -62,6 +61,10 @@ public class InGameUIHandler : MonoBehaviour
 
     public void OnGamePause()
     {
+        if (gameOver)
+        {
+            return;
+        }
         if (paused)
         {
             Time.timeScale = 1f;
@@ -80,6 +83,11 @@ public class InGameUIHandler : MonoBehaviour
 
     public void OnLayerToggle(int layerIndex)
     {
+        if (gameOver)
+        {
+            return;
+        }
+
         for (int i = 0; i < pauseMenuLayers.Length; i++)
         {
             if (i == layerIndex)
@@ -94,6 +102,11 @@ public class InGameUIHandler : MonoBehaviour
     }
     public void ResetPauseMenu()
     {
+        if (gameOver)
+        {
+            return;
+        }
+
         OnLayerToggle(0);
         pauseTab.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
@@ -145,5 +158,31 @@ public class InGameUIHandler : MonoBehaviour
     {
 
         audioHandler.setSFXVolume(value);
+    }
+
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        pauseTab.SetActive(true);
+        OnLayerToggle(pauseMenuLayers.Length - 1);
+        gameOver = true;
+
+    }
+
+    public void OnClickPlayAgain()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(2);
+        Destroy(gameObject);
+    }
+
+    public void OnClickMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+        Destroy(gameObject);
+
     }
 }

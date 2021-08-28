@@ -42,7 +42,7 @@ public class MainMenuUIHandler : MonoBehaviour
 
     public void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
 

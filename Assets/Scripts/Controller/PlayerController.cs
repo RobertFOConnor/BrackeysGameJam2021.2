@@ -46,10 +46,12 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         Cursor.lockState = CursorLockMode.Locked;
         cameraTransform = Camera.main.transform;
+        uiHandler = FindObjectOfType<InGameUIHandler>();
         moveAction = playerInput.actions["Movement"];
         jumpAction = playerInput.actions["Jump"];
         poopAction = playerInput.actions["Poop"];
         menuAction = playerInput.actions["Menu"];
+
     }
 
     void Update()

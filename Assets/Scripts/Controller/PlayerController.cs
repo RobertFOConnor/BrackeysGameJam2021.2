@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private Transform cameraTransform;
+    private Animator animator;
 
     private bool canPoop = true;
 
@@ -44,19 +45,18 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
+        animator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         cameraTransform = Camera.main.transform;
         uiHandler = FindObjectOfType<InGameUIHandler>();
         moveAction = playerInput.actions["Movement"];
         jumpAction = playerInput.actions["Jump"];
         poopAction = playerInput.actions["Poop"];
-        menuAction = playerInput.actions["Menu"];
-
+        menuAction = playerInput.actions["Menu"];        
     }
 
     void Update()
     {
-
         //Check if the player is on the ground
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -70,7 +70,8 @@ public class PlayerController : MonoBehaviour
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
         move.y = 0;
         controller.Move(move * Time.deltaTime * playerSpeed);
-
+        animator.SetFloat("MoveX", input.x);
+        animator.SetFloat("MoveY", input.y);
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
         // Changes the height position of the player..
         if (jumpAction.triggered && groundedPlayer)
         {
+            animator.SetTrigger("Jump");
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
@@ -96,10 +98,12 @@ public class PlayerController : MonoBehaviour
         // Pooping
         if (poopAction.triggered && canPoop)
         {
+            playerInput.DeactivateInput();
+            animator.SetTrigger("Poop");
             Instantiate(poopPrefab, poopSpawn.position, new Quaternion(0, 0, 0, 0));
             canPoop = false;
             Invoke("PoopCooldown", poopCD);
-
+            Invoke("Unfreeze", 3.5f);            
         }
 
         //Open's MainMenu
@@ -122,5 +126,10 @@ public class PlayerController : MonoBehaviour
     void PoopCooldown()
     {
         canPoop = true;
+    }
+
+    void Unfreeze()
+    {
+        playerInput.ActivateInput();
     }
 }

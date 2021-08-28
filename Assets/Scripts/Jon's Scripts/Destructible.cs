@@ -25,7 +25,7 @@ public class Destructible : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             dir = collision.contacts[0].point - transform.position;
             dir = -dir.normalized;

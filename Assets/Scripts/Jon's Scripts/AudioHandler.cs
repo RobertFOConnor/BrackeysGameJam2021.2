@@ -6,8 +6,15 @@ public class AudioHandler : MonoBehaviour
 {
     static AudioHandler instance;
 
-    public float musicVolume;
-    public float sfxVolume;
+    public float musicVolume = 0.5f;
+    public float sfxVolume = 0.5f;
+
+    public AudioSource musicAudioSource;
+    public AudioSource sfxAudioSource;
+
+
+    [SerializeField]
+    AudioClip musicClip;
 
     public static AudioHandler GetInstance()
     {
@@ -21,6 +28,9 @@ public class AudioHandler : MonoBehaviour
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        musicAudioSource.clip = musicClip;
+        musicAudioSource.loop = true;
+        musicAudioSource.Play();
     }
 
 
@@ -28,10 +38,17 @@ public class AudioHandler : MonoBehaviour
     public void setMusicVolume(float set)
     {
         musicVolume = set;
+        musicAudioSource.volume = musicVolume;
     }
 
     public void setSFXVolume(float set)
     {
         sfxVolume = set;
+        sfxAudioSource.volume = sfxVolume;
+    }
+
+    public void PlaySoundEffect(AudioClip effect)
+    {
+
     }
 }

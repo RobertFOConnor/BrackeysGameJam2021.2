@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 20
-  jumpHeight: 1
-  gravityValue: -25
+  jumpHeight: 3
+  gravityValue: -40
   rotationSpeed: 5
   poopCD: 3
   poopSpawn: {fileID: 950429889064160504}
@@ -170,11 +170,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1821068638988579155, guid: 440a4245fbeee0748a9be8c2c6c2a993, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.450689
+      value: -11.450691
       objectReference: {fileID: 0}
     - target: {fileID: 1821068638988579155, guid: 440a4245fbeee0748a9be8c2c6c2a993, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.271023
+      value: -25.27102
       objectReference: {fileID: 0}
     - target: {fileID: 1821068638988579155, guid: 440a4245fbeee0748a9be8c2c6c2a993, type: 3}
       propertyPath: m_LocalRotation.w
@@ -182,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1821068638988579155, guid: 440a4245fbeee0748a9be8c2c6c2a993, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.25881904
+      value: 0.25881907
       objectReference: {fileID: 0}
     - target: {fileID: 1821068638988579155, guid: 440a4245fbeee0748a9be8c2c6c2a993, type: 3}
       propertyPath: m_LocalRotation.y
@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1821068638988579155, guid: 440a4245fbeee0748a9be8c2c6c2a993, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000007450581
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1821068638988579155, guid: 440a4245fbeee0748a9be8c2c6c2a993, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -225,7 +225,7 @@ PrefabInstance:
     - target: {fileID: 4214760114670723778, guid: 1ca3f013ed99f1e4b83d4390eb913799, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 34dbbc7c0d2cef0479e3065e2b5f6f71, type: 2}
+      objectReference: {fileID: 9100000, guid: 574b0adb3c41e7b4386c7cb1e86978b3, type: 2}
     - target: {fileID: 4214760114679713058, guid: 1ca3f013ed99f1e4b83d4390eb913799, type: 3}
       propertyPath: m_RootOrder
       value: 0

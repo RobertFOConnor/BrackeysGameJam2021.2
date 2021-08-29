@@ -85,6 +85,9 @@ public class PlayerController : MonoBehaviour
         move.y = 0;
         move.Normalize();
         controller.Move(move * Time.deltaTime * playerSpeed);
+        print("inputx: " + input.x);
+        print("inputy: " + input.y);
+
         animator.SetFloat("MoveX", input.x);
         animator.SetFloat("MoveY", input.y);
         if (move != Vector3.zero)

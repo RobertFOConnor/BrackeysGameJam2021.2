@@ -40,7 +40,6 @@ public class TimerHandler : MonoBehaviour
 
         if (timeRemaining <= 21)
         {
-            Debug.Log("here");
             TriggerLowTime();
         }
     }

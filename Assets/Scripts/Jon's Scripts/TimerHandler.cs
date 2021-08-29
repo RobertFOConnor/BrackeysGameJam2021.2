@@ -17,6 +17,9 @@ public class TimerHandler : MonoBehaviour
     [SerializeField]
     GameObject lowTimeGO;
 
+    [SerializeField]
+    GameObject themeStartGO;
+
     private bool gameOver = false;
 
     private void Start()
@@ -35,8 +38,9 @@ public class TimerHandler : MonoBehaviour
             GameOver();
         }
 
-        if (timeRemaining <= 25)
+        if (timeRemaining <= 21)
         {
+            Debug.Log("here");
             TriggerLowTime();
         }
     }
@@ -56,6 +60,7 @@ public class TimerHandler : MonoBehaviour
 
     void TriggerLowTime()
     {
+        themeStartGO.SetActive(false);
         lowTimeGO.SetActive(true);
     }
 }

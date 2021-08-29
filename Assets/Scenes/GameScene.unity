@@ -69044,6 +69044,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 864046254, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
+      propertyPath: m_text
+      value: Jump
+      objectReference: {fileID: 0}
     - target: {fileID: 180920976091581090, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -69194,7 +69198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3476221891094994789, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
       propertyPath: startingTime
-      value: 300
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 3647324880265541744, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -69207,6 +69211,30 @@ PrefabInstance:
     - target: {fileID: 6772738944502791095, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335307852277172979, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
+      propertyPath: Event
+      value: event:/Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335307852277172979, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
+      propertyPath: PlayEvent
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335307852277172979, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
+      propertyPath: Params.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335307852277172979, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335307852277172979, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335307852277172979, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
+      propertyPath: Params.Array.data[0].Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9099415424962091858, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
       propertyPath: m_AnchorMax.x

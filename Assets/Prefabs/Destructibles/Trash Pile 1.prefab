@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -9093329258646291276}
   - component: {fileID: -3472967867083357363}
   - component: {fileID: -255728747456649894}
+  - component: {fileID: 1236193806472296531}
   m_Layer: 0
   m_Name: Trash Pile 1
   m_TagString: Untagged
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5fad51af03ad847adbd94ca01d3909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyValue: 0
+  destroyValue: 100
   forceToDestroy: 0
   particles: {fileID: 2797499969630729587, guid: f6bb6240c48398f409498cc71bbe602e, type: 3}
   force: 300
@@ -146,3 +147,26 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 643706189229216377, guid: e2ccb4a6970f3b0458c319b9acf6f5bc, type: 3}
+--- !u!114 &1236193806472296531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9147799449653591292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Explosion
+  PlayEvent: 2
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0

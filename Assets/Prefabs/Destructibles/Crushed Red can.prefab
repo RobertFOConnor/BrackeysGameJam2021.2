@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2049613349870352709}
   - component: {fileID: 3803605113351960021}
   - component: {fileID: 187288721280171213}
+  - component: {fileID: 6185826621961006421}
   m_Layer: 0
   m_Name: Crushed Red can
   m_TagString: Untagged
@@ -115,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5fad51af03ad847adbd94ca01d3909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyValue: 0
+  destroyValue: 50
   forceToDestroy: 0
   particles: {fileID: 2797499969630729587, guid: f6bb6240c48398f409498cc71bbe602e, type: 3}
   force: 300
@@ -133,3 +134,26 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6239469015914299103, guid: c53197fe80409584888da0060f0a4800, type: 3}
+--- !u!114 &6185826621961006421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018931112503983588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Explosion
+  PlayEvent: 2
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0

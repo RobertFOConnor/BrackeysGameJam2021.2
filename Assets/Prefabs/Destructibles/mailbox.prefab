@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 2227279938115021625}
   - component: {fileID: 4051768025372662159}
   - component: {fileID: -2164113370929319430}
+  - component: {fileID: -3215789343718475957}
   m_Layer: 0
   m_Name: mailbox
   m_TagString: Untagged
@@ -302,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5fad51af03ad847adbd94ca01d3909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyValue: 0
+  destroyValue: 200
   forceToDestroy: 0
   particles: {fileID: 2797499969630729587, guid: f6bb6240c48398f409498cc71bbe602e, type: 3}
   force: 300
@@ -320,6 +321,29 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &-3215789343718475957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7093050055517994103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Explosion
+  PlayEvent: 2
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &7315224828934401988
 GameObject:
   m_ObjectHideFlags: 0

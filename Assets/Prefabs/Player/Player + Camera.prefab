@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2679ce11dafe07c4fa7c17a263fca183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 20
+  playerSpeed: 45
   jumpHeight: 3
   gravityValue: -40
   rotationSpeed: 5
@@ -69,6 +69,8 @@ MonoBehaviour:
   poopPrefab: {fileID: 5799034551129368248, guid: 7d031bb676807f64abcd70ee83070634, type: 3}
   uiHandler: {fileID: 6650377339839327860, guid: 3be1a51c991e3ca48a543bac8643bec3, type: 3}
   m_Brain: {fileID: 0}
+  fartSoundPrefab: {fileID: 1766280199374145177, guid: e2fe8bd8d0a7d0340afaccf034626243, type: 3}
+  whineSoundPrefab: {fileID: 3305691965576302929, guid: dc2d7e4554b472547830b2fea3f9cf4c, type: 3}
 --- !u!1 &9197884899518417099
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 4214760114670723778, guid: 1ca3f013ed99f1e4b83d4390eb913799, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 574b0adb3c41e7b4386c7cb1e86978b3, type: 2}
+      objectReference: {fileID: 9100000, guid: 34dbbc7c0d2cef0479e3065e2b5f6f71, type: 2}
     - target: {fileID: 4214760114679713058, guid: 1ca3f013ed99f1e4b83d4390eb913799, type: 3}
       propertyPath: m_RootOrder
       value: 0

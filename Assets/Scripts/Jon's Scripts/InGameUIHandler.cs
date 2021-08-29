@@ -185,7 +185,7 @@ public class InGameUIHandler : MonoBehaviour
     public void OnClickMainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
         Destroy(gameObject);
 
     }

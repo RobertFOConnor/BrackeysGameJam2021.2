@@ -38,7 +38,7 @@ public class TimerHandler : MonoBehaviour
             GameOver();
         }
 
-        if (timeRemaining <= 21)
+        if (timeRemaining <= 35)
         {
             TriggerLowTime();
         }

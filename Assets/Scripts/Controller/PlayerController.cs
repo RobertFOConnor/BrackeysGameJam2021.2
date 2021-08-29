@@ -27,6 +27,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private CinemachineBrain m_Brain;
 
+    [SerializeField]
+    private GameObject fartSoundPrefab;
+
+    [SerializeField]
+    private GameObject whineSoundPrefab;
+
     private CharacterController controller;
     private PlayerControls playerInput;
     private Vector3 playerVelocity;
@@ -85,8 +91,6 @@ public class PlayerController : MonoBehaviour
         move.y = 0;
         move.Normalize();
         controller.Move(move * Time.deltaTime * playerSpeed);
-        print("inputx: " + input.x);
-        print("inputy: " + input.y);
 
         animator.SetFloat("MoveX", input.x);
         animator.SetFloat("MoveY", input.y);
@@ -137,6 +141,7 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("Poop");
             Instantiate(poopPrefab, poopSpawn.position, new Quaternion(0, 0, 0, 0));
             canPoop = false;
+            Instantiate(fartSoundPrefab);
             Invoke("PoopCooldown", poopCD);
             Invoke("Unfreeze", 3.5f);
         }
@@ -161,6 +166,7 @@ public class PlayerController : MonoBehaviour
 
     public void HitByCar()
     {
+        Instantiate(whineSoundPrefab);
         playerInput.Disable();
         animator.SetTrigger("Car");
         Invoke("Unfreeze", 3.5f);
